@@ -7,7 +7,7 @@ pub enum Error {
 }
 
 pub fn max_overhead(buf_len: usize) -> usize {
-    (buf_len + 253) / 254
+    buf_len.div_ceil(254)
 }
 
 pub fn required_buf_len(buf_len: usize) -> usize {
@@ -214,12 +214,12 @@ mod tests {
 
     fn generate_buffer<const N: usize>(s: &str) -> ([u8; N], usize) {
         let mut buf = [0; N];
-        let mut iter = s.split_whitespace();
+        let iter = s.split_whitespace();
         let mut index = 0;
         let mut previous_number = 0;
         let mut should_generate_sequence = false;
 
-        while let Some(w) = iter.next() {
+        for w in iter {
             if w == ".." || w == "..." {
                 should_generate_sequence = true;
             } else {
