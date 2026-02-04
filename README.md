@@ -1,5 +1,9 @@
 # 📦 cobsin
 
+[![crates.io](https://img.shields.io/crates/v/cobsin)](https://crates.io/crates/cobsin)
+[![docs.rs](https://img.shields.io/docsrs/cobsin)](https://docs.rs/cobsin)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 > COBS encoding/decoding, in-place. `no_std`, zero allocations.
 
 **COBS** (Consistent Overhead Byte Stuffing) eliminates zero bytes from data — perfect for packet protocols where `0x00` marks boundaries.
